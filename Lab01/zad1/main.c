@@ -38,6 +38,38 @@ kombinacji parametrów.
 #include <fcntl.h>
 
 
+double pierwsza(int fd, double in)
+{
+	double res;
+	res=in;
+	for (int i=1;i<=5;i++)
+	{
+		res=res+0.625*i;
+		char buff[30];
+		int n=sprintf(buff, "%.3f\n", res);
+		write(fd, buff, n);
+	}
+	return res;
+}
+
+double druga(int fd, double in)
+{
+	short int res, res2;
+	res = in;
+	for (int i=1; i<=19; i++)
+	{
+		res+=80;
+		if (res>=0)
+		{
+			char buff[30];
+			int n=sprintf(buff, "%d\n", res);
+			write(fd, buff, n);
+			res2=res;
+		}
+	}
+	return res2;
+}
+
 
 int main (int argc, char* argv[])
 {
@@ -82,21 +114,41 @@ int main (int argc, char* argv[])
 
 
 
-	if (k==1)
+	if (d==1)
 	{
-		//tudu 
 		//funkcja, która nadupca jednokrotne otwarcie pliku
 		int fd;
-		fd=open(argv[optind], O_CREAT|O_WRONLY|O_TRUNC,0666);
+		fd=open(argv[optind], O_CREAT|O_WRONLY|O_TRUNC|O_APPEND,0666);
+		
+		double res_pierwsza =0;
+		double res_druga=0;
 
+		for (int i=1; i<=k; i++)
+		{
+			res_pierwsza=pierwsza(fd,res_pierwsza);
+			res_druga=druga(fd,res_druga);
+		}
 		close(fd);
-
-
 	}
-	else if (k==2)
+
+	else if (d==2)
 	{
-		//tudu
-		//funkcja, która nadupcapodwójne otwarcie pliku
+		//tudu	int fd;
+		int fd1;
+		int fd2;
+		fd1=open(argv[optind], O_CREAT|O_WRONLY|O_TRUNC|O_APPEND,0666);
+		fd2=open(argv[optind], O_CREAT|O_WRONLY|O_TRUNC|O_APPEND,0666);
+		
+		double res_pierwsza=0;
+		double res_druga=0;
+
+		for (int i=1; i<=k; i++)
+		{
+			res_pierwsza=pierwsza(fd1,res_pierwsza);
+			res_druga=druga(fd2,res_druga);
+		}
+		close(fd1);
+		close(fd2);
 	}
 
 return 0;
