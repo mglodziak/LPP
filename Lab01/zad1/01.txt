@@ -1,0 +1,34 @@
+
+Program korzysta z dwóch funkcji pomocniczych. Każda przyjmuje, jako parametr,
+wskaźnik na strukturę FILE, odpowiadającą za otwarty plik, do którego można
+zapisywać.
+
+Pierwsza z funkcji wpisuje do dostarczonego pliku pięć (5) kolejnych krotności
+liczby 0,625 (z dokładnością do 3 cyfr po przecinku).
+Druga, wyznacza sekwencję 19 liczb typu short int, dodając do poprzedniej
+wartość 80. Nieujemne wartości z ciągu są (kolejno) wpisywane do zadanego
+pliku.
+
+Obie funkcje zaczynają obliczenia od 0, a każde kolejne wywołanie powoduje
+kontynuowanie od wartości, na której skończyło się poprzednie.
+(Uwaga, funkcje nie mogą korzystać ze zmiennych globalnych).
+
+
+Program przyjmuje parametry:
+ -d <int>   - wartością parametru może być 1 albo 2,
+ -k <int>   - wartością parametru jest liczba nieujemna,
+oraz argument pozycyjny, interpretowany jako ścieżka do pliku.
+
+Program wykonuje następujące czynności:
+1. W zależności od wartości parametru -d, otwiera zadany plik (w trybie do
+   zapisu) jeden lub dwa razy. Jeżeli takiego pliku wcześniej nie było, to go
+   tworzy, a jeżeli był, to skraca jego długość do 0 bajtów.
+2. Wywołuje naprzemiennie wymienione wyżej funkcje, tyle razy, ile wynosi
+   wartość parametru -k.
+   Jeżeli plik był otwarty dwa razy, to do każdej z funkcji przekazuje inny
+   wskaźnik.
+
+Po uruchomieniu programu sprawdzić, jak zmieniają się wyniki, w zależności od
+kombinacji parametrów.
+
+

@@ -1,0 +1,27 @@
+[Używać wyłącznie funkcji niskopoziomowych.]
+
+
+Napisać program, który z zadanego źródła kopiuje zadaną liczbę bajtów 
+w określone miejsce pliku docelowego.
+Program przyjmuje następujące parametry z wartościami:
+-I <ścieżka>          lokalizacja pliku wejściowego,
+-O <ścieżka>          lokalizacja pliku wyjściowego,
+-c <D>,<C>,<W>        lokalizacja danych źródłowych i miejsca na wynik,
+                      gdzie kolejne elementy to:
+                      - początek obszaru w pliku źródłowym,
+                      - ilość bajtów do przekopiowania,
+                      - początek obszaru w pliku wynikowym,
+-d <bajt>,<C>,<W>     wartość stała, która ma być wpisana w zadany obszar
+                        pliku.
+
+Każda z części <D>,<C>,<W> jest napisem postaci: <int><unit>,
+gdzie <unit> może być:
+- pusty lub 'B' i oznacza bajty,
+- 'k', 'M' oznaczają odpowiednio 10^3 i 10^9,
+- 'K' lub 'Ki' oznacza 2^10,
+- 'Mi' oznacza 2^20.
+Wartość <bajt> wyże być podana jako liczba lub znak.
+
+Uwaga, parametr -c może wystąpić wielokrotnie, oznaczając sekwencję czynności.
+
+

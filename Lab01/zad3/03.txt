@@ -1,0 +1,10 @@
+[Używać wyłącznie funkcji niskopoziomowych.]
+
+Program przyjmuje dowolną liczbę argumentów, traktowanych jako ścieżki 
+w systemie plików. Do każdego parametru, który prowadzi do ISTNIEJĄCEGO 
+pliku regularnego, otworzyć ten plik i  dopisać na jego koniec linijkę tekstu
+z bieżącą wartością zegara (odczytaną zaraz po otwarciu tego pliku).
+Linijka ma kończyć się znakiem przejścia do nowej linii.
+
+Uwaga, należy nie używać funkcji lseek (ani podobnych).
+
